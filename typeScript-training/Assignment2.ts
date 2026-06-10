@@ -30,3 +30,5 @@ else if ( creditScore >= 650 )
 else if(creditScore < 650 ){
     console.log("Sorry, your loan process is rejected because your credit score is very low.")
 }
+
+
