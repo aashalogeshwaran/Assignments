@@ -1,0 +1,76 @@
+{
+  "info": {
+    "_postman_id": "fd2cf115-7741-48aa-aa2f-0ab4fbeca37e",
+    "name": "git api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56749073",
+    "_collection_link": "https://go.postman.co/collection/56749073-fd2cf115-7741-48aa-aa2f-0ab4fbeca37e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "creating a duplicate repository",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "//verify the status 422 \r",
+              "pm.test(\"Status code is 422\", function () {\r",
+              "    pm.response.to.have.status(422);\r",
+              "    });\r",
+              "\r",
+              "//verify the message in the response body\r",
+              "pm.test(\"Message is 'Repository creation failed.'\", function () {\r",
+              "    pm.expect(pm.response.json().message).to.eql(\"Repository creation failed.\");\r",
+              "    });\r",
+              "\r",
+              "    //verify the error code in the response body\r",
+              "    pm.test(\"Error code is 'custom'\", function () {\r",
+              "        pm.expect(pm.response.json().errors[0].code).to.eql(\"custom\");\r",
+              "        });\r",
+              "        "
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "pplication/vnd.github+json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{TOKEN}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\":\"jmeter-repo8\",\r\n    \"description\":\"api testing for Create a duplicate repository\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BASE URL}}/user/repos",
+          "host": [
+            "{{BASE URL}}"
+          ],
+          "path": [
+            "user",
+            "repos"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

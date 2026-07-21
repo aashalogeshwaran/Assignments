@@ -1,0 +1,19 @@
+{
+    "app":{
+        "url": "https://accounts.creatio.com/login/alm",
+        "title": "Log in | Creatio",
+        "username": "bharattechacademy5@outlook.com",
+        "userpassword": "BharathTechAcademy#1234"
+    },
+    "api": {
+        "baseUrl": "https://api.example.com",
+        "token": "your_api_token_here"
+    },
+    "db": {
+        "host": "localhost",
+        "port": 5432,
+        "username": "dbuser",
+        "password": "dbpassword",
+        "database": "testdb"
+    }
+}
